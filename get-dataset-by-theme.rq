@@ -1,0 +1,15 @@
+#+ endpoint: http://ejprd.fair-dtls.surf-hosted.nl:80893/blazegraph/namespace/kb/sparql
+#+ endpoint_in_url: False
+#+ description: Get datasets for a given theme URI.
+#+ defaults:
+#+   - theme: http://purl.obolibrary.org/obo/DOID_3429
+
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcat-ext: <http://purl.org/biosemantics-lumc/ontologies/dcat-extension/>
+
+
+SELECT DISTINCT ?resource WHERE { 
+  
+  ?resource a dcat:Dataset;
+            dcat:theme ?_theme_iri .
+ }
