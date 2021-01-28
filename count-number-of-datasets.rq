@@ -1,0 +1,9 @@
+#+ endpoint: http://ejprd.fair-dtls.surf-hosted.nl:8093/blazegraph/namespace/kb/sparql
+#+ endpoint_in_url: False
+#+ description: Get count of number of datasets described in this endpoint.
+
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+
+SELECT (COUNT(DISTINCT ?resource) AS ?resources) WHERE {   
+  ?resource a dcat:Dataset .
+}
