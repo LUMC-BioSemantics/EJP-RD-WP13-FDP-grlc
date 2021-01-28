@@ -1,0 +1,19 @@
+#+ endpoint: http://ejprd.fair-dtls.surf-hosted.nl:8093/blazegraph/namespace/kb/sparql
+#+ endpoint_in_url: False
+#+ description: Get count of number of datasets described in this endpoint.
+#+ defaults:
+#+   - queryStr: ibm
+
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT ?resource WHERE {   
+  
+  ?resource a dcat:Dataset;
+              dcterms:description ?description;
+              dcterms:title ?title;
+              dcat:keyword ?keyword.
+  
+  FILTER(regex(?title, ?_queryStr, "i") || regex(?description, ?_queryStr, "i") || regex(?keyword, ?_queryStr, "i"))  
+  
+}
