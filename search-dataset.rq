@@ -7,7 +7,7 @@
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
-SELECT DISTINCT ?resource WHERE {   
+SELECT DISTINCT ?resource ?title WHERE {   
   
   ?resource a dcat:Dataset;
               dcterms:description ?description;
